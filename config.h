@@ -10,13 +10,17 @@ static const unsigned int snap      = 32;       /* snap pixel */
 static const int swallowfloating    = 1;        /* 1 means swallow floating windows by default */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 0;        /* 0 means bottom bar */
-static const char *fonts[]          = { "monospace:size=10" };
+static const char *fonts[]          = {
+                    "FiraCode Nerd Font:size=9:antialias=true:autohint=true",
+                    "Hack:size=8:antialias=true:autohint=true",
+                    "JoyPixels:size=10:antialias=true:autohint=true"
+};
 static const char dmenufont[]       = "monospace:size=10";
-static const char col_gray1[]       = "#273B6A";
-static const char col_gray2[]       = "#cc241d";
-static const char col_gray3[]       = "#FFFFFF";
-static const char col_gray4[]       = "#373532";
-static const char col_cyan[]        = "#1597E4";
+static const char col_gray1[]       = "#273B6A"; /* Normal bg */
+static const char col_gray2[]       = "#cc241d"; /* Normal border */
+static const char col_gray3[]       = "#FFFFFF"; /* Normal fg */
+static const char col_gray4[]       = "#373532"; /* Selected fg */
+static const char col_cyan[]        = "#1597E4"; /* Selected border/bg */
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
 	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
@@ -24,7 +28,7 @@ static const char *colors[][3]      = {
 };
 
 /* tagging */
-static const char *tags[] = { "TERM", "WWW", "PROG", "MUSIC", "5", "6", "7", "8", "9" };
+static const char *tags[] = { "", "", "", "", "ﱘ", "" };
 
 static const Rule rules[] = {
 	/* xprop(1):
@@ -34,8 +38,8 @@ static const Rule rules[] = {
 	/* class     instance  title           tags mask  isfloating  isterminal  noswallow  monitor */
 	{ "Gimp",    NULL,     NULL,           0,         1,          0,           0,        -1 },
 	{ "firefox", NULL,     NULL,           1 << 1,    0,          0,          -1,        -1 },
-	{ "Spotify", NULL,     NULL,           1 << 6,    0,          0,           0,        -1 },
-	{ "discord", NULL,     NULL,           1 << 4,    0,          0,           0,        -1 },
+	{ "Spotify", NULL,     NULL,           1 << 4,    0,          0,           0,        -1 },
+	{ "discord", NULL,     NULL,           1 << 3,    0,          0,           0,        -1 },
 	{ "St",      NULL,     NULL,           0,         0,          1,           0,        -1 },
 	{ NULL,      NULL,     "Event Tester", 0,         0,          0,           1,        -1 }, /* xev */
 };
