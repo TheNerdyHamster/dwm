@@ -4,7 +4,7 @@
 
 
 /* appearance */
-static const unsigned int borderpx  = 1;        /* border pixel of windows */
+static const unsigned int borderpx  = 2;        /* border pixel of windows */
 static const unsigned int gappx     = 5;        /* gaps between windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const int swallowfloating    = 1;        /* 1 means swallow floating windows by default */
@@ -15,16 +15,24 @@ static const char *fonts[]          = {
                     "Hack:size=8:antialias=true:autohint=true",
                     "JoyPixels:size=10:antialias=true:autohint=true"
 };
-static const char dmenufont[]       = "monospace:size=10";
-static const char col_gray1[]       = "#273B6A"; /* Normal bg */
-static const char col_gray2[]       = "#cc241d"; /* Normal border */
-static const char col_gray3[]       = "#FFFFFF"; /* Normal fg */
+static const char dmenufont[]       = "Hack:size=10";
+static const char col_gray1[]       = "#282828"; /* Normal bg */
+static const char col_gray2[]       = "#98971a"; /* Normal border */
+static const char col_gray3[]       = "#ebdbb2"; /* Normal fg */
 static const char col_gray4[]       = "#373532"; /* Selected fg */
-static const char col_cyan[]        = "#1597E4"; /* Selected border/bg */
+static const char col_cyan[]        = "#9ec07c"; /* Selected border/bg */
+static const unsigned int baralpha = 0xd0;
+static const unsigned int borderalpha = OPAQUE;
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
 	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
 	[SchemeSel]  = { col_gray4, col_cyan,  col_cyan  },
+};
+
+static const unsigned int alphas[][3]      = {
+        /*               fg      bg        border     */
+        [SchemeNorm] = { OPAQUE, baralpha, borderalpha },
+        [SchemeSel]  = { OPAQUE, baralpha, borderalpha },
 };
 
 /* tagging */
@@ -90,14 +98,15 @@ static Key keys[] = {
 	{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} },
 	{ MODKEY,                       XK_f,      setlayout,      {.v = &layouts[1]} },
 	{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[2]} },
+    { MODKEY|ALTKEY,                XK_s,      spawn,          SHCMD("scrot '%Y-%m-%d_$wx$h.png' -e 'mv $f ~/Pictures/screenshots'") },
 	{ MODKEY,                       XK_space,  setlayout,      {0} },
 	{ MODKEY|ShiftMask,             XK_space,  togglefloating, {0} },
 	{ MODKEY,                       XK_0,      view,           {.ui = ~0 } },
 	{ MODKEY|ShiftMask,             XK_0,      tag,            {.ui = ~0 } },
-	{ MODKEY,                       XK_h,  focusmon,       {.i = -1 } },
-	{ MODKEY,                       XK_l, focusmon,       {.i = +1 } },
-	{ MODKEY|ShiftMask,             XK_h,  tagmon,         {.i = -1 } },
-	{ MODKEY|ShiftMask,             XK_l, tagmon,         {.i = +1 } },
+	{ MODKEY,                       XK_h,      focusmon,       {.i = -1 } },
+	{ MODKEY,                       XK_l,      focusmon,       {.i = +1 } },
+	{ MODKEY|ShiftMask,             XK_h,      tagmon,         {.i = -1 } },
+	{ MODKEY|ShiftMask,             XK_l,      tagmon,         {.i = +1 } },
 	{ MODKEY,                       XK_minus,  setgaps,        {.i = -1 } },
 	{ MODKEY,                       XK_equal,  setgaps,        {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_equal,  setgaps,        {.i = 0  } },
