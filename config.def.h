@@ -36,7 +36,7 @@ static const unsigned int alphas[][3]      = {
 };
 
 /* tagging */
-static const char *tags[] = { "", "", "", "", "ﱘ", "" };
+static const char *tags[] = { "", "", "", "", "ﱘ", "" };
 
 static const Rule rules[] = {
 	/* xprop(1):
@@ -48,6 +48,7 @@ static const Rule rules[] = {
 	{ "firefox", NULL,     NULL,           1 << 1,    0,          0,          -1,        -1 },
 	{ "Spotify", NULL,     NULL,           1 << 4,    0,          0,           0,        -1 },
 	{ "discord", NULL,     NULL,           1 << 3,    0,          0,           0,        -1 },
+	{ "Slack",   NULL,     NULL,           1 << 3,    0,          0,           0,        -1 },
 	{ "St",      NULL,     NULL,           0,         0,          1,           0,        -1 },
 	{ NULL,      NULL,     "Event Tester", 0,         0,          0,           1,        -1 }, /* xev */
 };
