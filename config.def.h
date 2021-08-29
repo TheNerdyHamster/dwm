@@ -7,6 +7,8 @@ static const unsigned int snap      = 12;       /* snap pixel */
 static const int swallowfloating    = 0;        /* 1 means swallow floating windows by default */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 0;        /* 0 means bottom bar */
+static const int splitstatus        = 1;        /* 1 for split status */
+static const char *splitdelim       = ";";      /* Char used for separating status */
 static const char *fonts[]          = { "FiraCode Nerd Font:size=10" };
 static const char dmenufont[]       = "monospace:size=10";
 static const char col_gray1[]       = "#2a3748";	/* Background */

@@ -16,3 +16,4 @@
  - Zoomswap
  - Fullgaps
  - Notitle
+ - Splitstatus
