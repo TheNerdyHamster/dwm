@@ -17,3 +17,4 @@
  - Fullgaps
  - Notitle
  - Status2d
+ - Rainbowtags
