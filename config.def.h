@@ -13,7 +13,7 @@ static const char *fonts[]          = { "FiraCode Nerd Font:size=10" };
 static const char dmenufont[]       = "monospace:size=10";
 static const char col_gray1[]       = "#2a3748";	/* Background */
 static const char col_gray2[]       = "#d2ae90";	/* Inactive window border */
-static const char col_gray3[]       = "#e7a73b";	/* Font */
+static const char col_gray3[]       = "#dddddd";	/* Font */
 static const char col_gray4[]       = "#2a3748";	/* Current tag & window */
 static const char col_cyan[]        = "#e7a73b";	/* Bar sec color & Prim window */
 static const char *colors[][3]      = {
@@ -26,15 +26,15 @@ static const char *colors[][3]      = {
 static const char *tags[] = { "", "", "", "", "", "", "", "8", "9" };
 
 static const char *tagsel[][2] = {
-	{ "#ffffff", "#ff0000" },
-	{ "#ffffff", "#ff7f00" },
-	{ "#000000", "#ffff00" },
-	{ "#000000", "#00ff00" },
-	{ "#ffffff", "#0000ff" },
-	{ "#ffffff", "#4b0082" },
-	{ "#ffffff", "#9400d3" },
-	{ "#000000", "#ffffff" },
-	{ "#ffffff", "#000000" },
+	{ "#19839e", "#2a3748" },
+	{ "#19839e", "#2a3748" },
+	{ "#20d30c", "#2a3748" },
+	{ "#9e1926", "#2a3748" },
+	{ "#d30c8a", "#2a3748" },
+	{ "#d30c8a", "#2a3748" },
+	{ "#9e1926", "#2a3748" },
+	{ "#20d30c", "#2a3748" },
+	{ "#20d30c", "#2a3748" },
 };
 
 static const Rule rules[] = {
