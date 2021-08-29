@@ -16,4 +16,4 @@
  - Zoomswap
  - Fullgaps
  - Notitle
- - Splitstatus
+ - Status2d
