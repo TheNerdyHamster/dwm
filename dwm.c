@@ -181,6 +181,7 @@ static void focus(Client *c);
 static void focusin(XEvent *e);
 static void focusmon(const Arg *arg);
 static void focusstack(const Arg *arg);
+static Atom getatomprop(Client *c, Atom prop);
 static int getrootptr(int *x, int *y);
 static long getstate(Window w);
 static int gettextprop(Window w, Atom atom, char *text, unsigned int size);
@@ -768,7 +769,7 @@ dirtomon(int dir)
 void
 drawbar(Monitor *m)
 {
-	int x, w, sw = 0;
+	int x, w, tw = 0;
 	int boxs = drw->fonts->h / 9;
 	int boxw = drw->fonts->h / 6 + 2;
 	unsigned int i, occ = 0, urg = 0;
@@ -809,7 +810,7 @@ drawbar(Monitor *m)
   		drw_text(drw, msx, 0, TEXTW(mstext) - lrpad, bh, 0, mstext, 0);
   	}
   	sw = TEXTW(rstext) - lrpad + 2; /* 2px right padding */
-  	drw_text(drw, m->ww - sw, 0, sw, bh, 0, rstext, 0);
+  	drw_text(drw, m->ww - tw, 0, tw, bh, 0, rstext, 0);
   }
   
 	drw_map(drw, m->barwin, 0, 0, m->ww, bh);
@@ -917,7 +918,7 @@ focusstack(const Arg *arg)
 {
 	Client *c = NULL, *i;
 
-	if (!selmon->sel)
+	if (!selmon->sel || selmon->sel->isfullscreen)
 		return;
 	if (arg->i > 0) {
 		for (c = selmon->sel->next; c && !ISVISIBLE(c); c = c->next);
@@ -1614,7 +1615,7 @@ setmfact(const Arg *arg)
 	if (!arg || !selmon->lt[selmon->sellt]->arrange)
 		return;
 	f = arg->f < 1.0 ? arg->f + selmon->mfact : arg->f - 1.0;
-	if (f < 0.1 || f > 0.9)
+	if (f < 0.05 || f > 0.95)
 		return;
 	selmon->mfact = f;
 	arrange(selmon);
